@@ -9,7 +9,7 @@ require('dotenv').config(); // 맨 위에 추가
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
 
 const JWT_SECRET = process.env.JWT_SECRET || "yourSuperSecretKey"; // .env로 분리 추천
 
