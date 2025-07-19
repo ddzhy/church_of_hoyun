@@ -12,7 +12,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post('http://localhost:3001/login', { email, password });
+      const api = import.meta.env.VITE_API_URL;
+      const result = await axios.post(`${api}/login`, { email, password });
       if (result.data.token) {
         localStorage.setItem("token", result.data.token);
         navigate('/');

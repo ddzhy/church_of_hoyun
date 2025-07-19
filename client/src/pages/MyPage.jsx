@@ -14,7 +14,8 @@ const Mypage = () => {
         return;
       }
       try {
-        const res = await axios.get('http://localhost:3001/me', {
+        const api = import.meta.env.VITE_API_URL;
+        const res = await axios.get(`${api}/me`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
