@@ -54,7 +54,7 @@ app.get('/me', async (req, res) => {
   const token = authHeader.split(' ')[1];
 
   try {
-    const decoded = jwt.verify(token, 'yourSuperSecretKey');
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await EmployeeModel.findById(decoded.id).select('name email');
     if (!user) return res.status(404).json({ message: '사용자 없음' });
 
