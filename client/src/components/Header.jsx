@@ -22,6 +22,7 @@ const Header = () => {
           <>
             <Link to="/mypage" className="text-blue-200 hover:underline">마이페이지</Link>
             <Link to="/members" className="text-blue-200 hover:underline">신자목록</Link>
+            <Link to="/posts" className="text-blue-200 hover:underline">게시판</Link>
             <button onClick={handleLogout} className="text-red-300 hover:underline">로그아웃</button>
           </>
         ) : (

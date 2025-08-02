@@ -16,7 +16,7 @@ const Login = () => {
       const result = await axios.post(`${api}/login`, { email, password });
       if (result.data.token) {
         localStorage.setItem("token", result.data.token);
-        navigate('/');
+        navigate('/mypage');
       }
     } catch (err) {
       alert(err.response?.data?.message || '로그인 실패');

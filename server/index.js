@@ -5,11 +5,13 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const EmployeeModel = require('./models/Employee');
-
+const postRoutes = require('./routes/postRoutes')
 
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
+app.use(express.json());
+app.use('/posts', postRoutes);
 
 const JWT_SECRET = process.env.JWT_SECRET || "yourSuperSecretKey"; // .env로 분리 추천
 
